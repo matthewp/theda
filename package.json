@@ -1,0 +1,21 @@
+{
+  "name": "theda",
+  "version": "1.0.0",
+  "description": "Off-thread classes",
+  "main": "theda.js",
+  "scripts": {
+    "test": "testee --browsers chrome test/basics.html"
+  },
+  "files": [
+    "theda.js",
+    "theda.umd.js"
+  ],
+  "keywords": [],
+  "author": "Matthew Phillips <matthew@matthewphillips.info>",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "got": "^8.0.1",
+    "rollup": "^0.53.0",
+    "testee": "^0.7.0"
+  }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<title>theda basic tests</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/4.0.1/mocha.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/4.0.1/mocha.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.1.2/chai.js"></script>
+
+<main>
+  <div id="mocha"></div>
+  <div id="host"></div>
+</main>
+
+<script>
+  mocha.setup('bdd');
+</script>
+<script type="module">
+  import { connect, disconnect } from '../../../theda.js';
+
+  const assert = chai.assert;
+  const worker = new Worker('./tests/basics/worker.js');
+  const { Counter } = connect(worker);
+
+  describe('Basics', function(){
+    it('can create instances of off-thread classes', async function(){
+      let count;
+      let counter = new Counter();
+
+      count = await counter.increment(5);
+      assert.equal(count, 5);
+
+      count = await counter.decrement();
+      assert.equal(count, 4);
+    });
+
+    it('can destroy instances', async function(){
+        let counter = new Counter();
+        await counter.increment();
+        disconnect(counter);
+    });
+  });
+</script>
+<script type="module">
+  mocha.run();
+</script>
