@@ -1,6 +1,6 @@
 # theda
 
-<img src="https://user-images.githubusercontent.com/361671/34448315-131fab8c-ecba-11e7-9c47-f423f83cdee9.jpg" width="250" />
+<a href="https://en.wikipedia.org/wiki/Theda_Bara"><img src="https://user-images.githubusercontent.com/361671/34448315-131fab8c-ecba-11e7-9c47-f423f83cdee9.jpg" width="250" /></a>
 
 __theda__ makes moving state off of the main thread easy. Create classes in web worker and then use them within your main thread.
 
