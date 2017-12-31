@@ -73,7 +73,8 @@ emitterProto.post = function(type, data){
   this._worker.postMessage({
     spec, type, data,
     stype: MSG,
-    id: this._id
+    id: this._id,
+    tag: this._tag
   });
 };
 emitterProto.addEventListener = function(type, cb){
@@ -132,7 +133,7 @@ function subscribe(tag, cb) {
 
   self.addEventListener('message', function(ev){
     let msg = ev.data || {};
-    if(msg.spec === spec) {
+    if(msg.spec === spec && msg.tag === tag) {
       switch(msg.stype) {
         case MSG:
           let emitter = idMap.get(msg.id);

@@ -1,7 +1,7 @@
 import {
   connect as eventConnect,
   subscribe
-} from 'https://unpkg.com/leni@1.2.0/leni.js';
+} from 'https://unpkg.com/leni@1.2.1/leni.js';
 
 const T_INSTANCE = Symbol('instance');
 
